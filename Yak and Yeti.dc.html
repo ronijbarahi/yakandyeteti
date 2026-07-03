@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  @font-face { font-family:'Monkeyoak'; src:url("assets/Monkeyoak.otf") format('opentype'); font-weight:normal; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Parkinsans'; src:url("assets/Parkinsans.ttf") format('truetype'); font-weight:normal; font-style:normal; font-display:swap; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; background: #f4ead2; }
+  ::selection { background: #e3222b; color: #fff; }
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #d8cba6; border-radius: 8px; }
+  @keyframes yy-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes yy-bobx { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+  @keyframes yy-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+  @keyframes yy-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes yy-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @keyframes yy-pop { 0% { transform: scale(.94); } 50% { transform: scale(1.04); } 100% { transform: scale(.94); } }
+  .yy-zoom { overflow: hidden; }
+  .yy-zoom img { transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+  .yy-zoom:hover img { transform: scale(1.08); }
+  @media (max-width: 920px) {
+    [data-r=g2] { grid-template-columns:1fr !important; gap:32px !important; }
+    [data-r=g2flip] { grid-template-columns:1fr !important; gap:32px !important; }
+    [data-r=g2flip] [data-r=photo] { order:-1 !important; }
+    [data-r=g3] { grid-template-columns:1fr !important; }
+    [data-r=g4] { grid-template-columns:1fr 1fr !important; }
+    [data-r=navlinks] { display:none !important; }
+    [data-r=heroyeti] { height:340px !important; }
+    [data-r=hero] { text-align:center !important; }
+    [data-r=herocta] { justify-content:center !important; }
+  }
+  @media (max-width: 560px) {
+    [data-r=g4] { grid-template-columns:1fr !important; }
+    [data-r=herocta] { flex-direction:column !important; align-items:stretch !important; }
+    [data-r=herocta] > a { justify-content:center !important; text-align:center !important; }
+    [data-r=heroyeti] { height:260px !important; }
+    [data-r=hide-sm] { display:none !important; }
+  }
+</style>
+</helmet>
+
+<div data-screen-label="Yak &amp; Yeti — Home" style="font-family:'Parkinsans',sans-serif; color:#2b2622; background:#f4ead2; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:60; background:rgba(244,234,210,.92); backdrop-filter:blur(12px); border-bottom:2px solid #2a3f9e;">
+    <div style="max-width:1220px; margin:0 auto; padding:12px 26px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+      <a href="#top" style="display:flex; align-items:center; text-decoration:none;">
+        <img src="assets/logo.svg" alt="Yak &amp; Yeti" style="height:54px; display:block;">
+      </a>
+      <div data-r="navlinks" style="display:flex; align-items:center; gap:32px;">
+        <a href="#menu" style="text-decoration:none; color:#2a3f9e; font-weight:700; font-size:15px;">Menu</a>
+        <a href="#story" style="text-decoration:none; color:#2a3f9e; font-weight:700; font-size:15px;">Our Story</a>
+        <a href="#catering" style="text-decoration:none; color:#2a3f9e; font-weight:700; font-size:15px;">Catering</a>
+        <a href="#find" style="text-decoration:none; color:#2a3f9e; font-weight:700; font-size:15px;">Find Us</a>
+      </div>
+      <a href="#menu" style="text-decoration:none; white-space:nowrap; background:#e3222b; color:#fff; font-weight:800; font-size:14px; letter-spacing:.02em; padding:11px 22px; border-radius:999px; transition:background .15s;" style-hover="background:#c51a23;">Order Online</a>
+    </div>
+  </nav>
+
+  <!-- MARQUEE -->
+  <div style="background:#e3222b; color:#fff; overflow:hidden; border-bottom:2px solid #2a3f9e;">
+    <div style="display:flex; width:max-content; white-space:nowrap; animation:yy-marquee 30s linear infinite; padding:11px 0; font-family:'Monkeyoak',sans-serif; font-size:18px; letter-spacing:.05em;">
+      <span style="display:inline-block;">&nbsp;Momo&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Thukpa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Sekuwa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chow Mein&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Masala Chai&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chaat&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Curry &amp; Rice&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Momo&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Thukpa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Sekuwa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chow Mein&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Masala Chai&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chaat&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Curry &amp; Rice&nbsp; <span style="color:#ffd23e;">★</span> </span>
+      <span style="display:inline-block;">&nbsp;Momo&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Thukpa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Sekuwa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chow Mein&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Masala Chai&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chaat&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Curry &amp; Rice&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Momo&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Thukpa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Sekuwa&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chow Mein&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Masala Chai&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Chaat&nbsp; <span style="color:#ffd23e;">★</span> &nbsp;Curry &amp; Rice&nbsp; <span style="color:#ffd23e;">★</span> </span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="top" data-r="hero" style="position:relative; max-width:1280px; margin:0 auto; padding:clamp(40px,6vw,80px) 26px clamp(30px,4vw,50px);">
+    <div data-r="g2" style="display:grid; grid-template-columns:1.02fr .98fr; gap:48px; align-items:center;">
+      <div style="position:relative; z-index:3;">
+        <h1 style="font-family:'Monkeyoak',sans-serif; font-weight:400; margin:0; line-height:.86; font-size:clamp(54px,8.5vw,116px); color:#2a3f9e;">Taste the<br><span style="color:#e3222b;">Himalayas</span></h1>
+        <p style="max-width:440px; margin:24px 0 0; font-size:clamp(16px,1.6vw,19px); line-height:1.6; color:#5a4f38;">Momo folded by hand each morning, sizzling sekuwa, chai poured hot. Bold Himalayan street food — dine in or grab it to go.</p>
+        <div data-r="herocta" style="display:flex; flex-wrap:wrap; gap:13px; margin-top:32px;">
+          <a href="#menu" style="text-decoration:none; background:#e3222b; color:#fff; font-weight:800; font-size:16px; padding:15px 30px; border-radius:999px; box-shadow:0 6px 0 #a8141c; transition:transform .12s, box-shadow .12s;" style-hover="transform:translateY(2px); box-shadow:0 4px 0 #a8141c;">See the menu</a>
+          <a href="#find" style="text-decoration:none; background:#fff; color:#2a3f9e; font-weight:800; font-size:16px; padding:15px 28px; border-radius:999px; border:2px solid #2a3f9e; box-shadow:0 6px 0 #c9cee6; transition:transform .12s, box-shadow .12s;" style-hover="transform:translateY(2px); box-shadow:0 4px 0 #c9cee6;">Find us</a>
+        </div>
+      </div>
+
+      <div style="position:relative; min-height:clamp(340px,44vw,540px); display:flex; align-items:center; justify-content:center;">
+        <!-- main food circle -->
+        <div style="position:relative; z-index:2; width:min(86%,420px); aspect-ratio:1; border-radius:50%; overflow:hidden; border:10px solid #fff; box-shadow:0 26px 54px rgba(42,63,158,.28); background:#e3222b; animation:yy-float 6s ease-in-out infinite;">
+          <img src="assets/momo-hero.jpg" alt="Steamed momo" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+
+        <!-- rotating seal -->
+        <div style="position:absolute; top:0; right:2%; width:clamp(92px,13vw,138px); aspect-ratio:1; z-index:4; filter:drop-shadow(0 8px 16px rgba(0,0,0,.18)); animation:yy-spin 18s linear infinite;">
+          <svg viewBox="0 0 120 120" style="width:100%; height:100%; display:block;">
+            <defs><path id="yyseal" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"></path></defs>
+            <circle cx="60" cy="60" r="59" fill="#ffd23e"></circle>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#2a3f9e" stroke-width="1.5" stroke-dasharray="2 4"></circle>
+            <text font-family="Parkinsans, sans-serif" font-size="11.5" font-weight="800" fill="#2a3f9e" letter-spacing="2.5"><textPath href="#yyseal" startOffset="0">FRESH DAILY · HAND FOLDED · </textPath></text>
+            <text x="60" y="72" text-anchor="middle" font-family="Monkeyoak, sans-serif" font-size="34" fill="#e3222b">Yum</text>
+          </svg>
+        </div>
+
+        <!-- floating dish chip -->
+        <div style="position:absolute; bottom:2%; left:-1%; z-index:4; background:#fff; border-radius:18px; padding:9px; box-shadow:0 16px 34px rgba(0,0,0,.16); width:clamp(118px,15vw,164px); animation:yy-bobx 5s ease-in-out infinite;">
+          <div class="yy-zoom" style="border-radius:11px; aspect-ratio:5/4;">
+            <img src="assets/chaat.jpg" alt="Chaat" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <div style="font-weight:800; font-size:12.5px; color:#2a3f9e; padding:7px 4px 2px;">60+ dishes to dig into</div>
+        </div>
+
+        <!-- dumpling mascot accent -->
+        <img src="assets/mascot-dumpling.png" alt="" style="position: absolute; width: clamp(72px,8.5vw,112px); height: auto; z-index: 5; animation: yy-bob 4.6s ease-in-out infinite; left: 366px; top: 324px">
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST STRIP -->
+  <div style="background:#2a3f9e; color:#f4ead2;">
+    <div style="max-width:1220px; margin:0 auto; padding:16px 26px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 38px; font-weight:700; font-size:15px;">
+      <span style="display:flex; align-items:center; gap:9px;"><span style="color:#ffd23e;">★</span> Folded fresh every morning</span>
+      <span style="display:flex; align-items:center; gap:9px;"><span style="color:#ffd23e;">★</span> Family recipes from home</span>
+      <span style="display:flex; align-items:center; gap:9px;"><span style="color:#ffd23e;">★</span> Veg, paneer &amp; halal sorted</span>
+      <span style="display:flex; align-items:center; gap:9px;"><span style="color:#ffd23e;">★</span> Dine in or take away</span>
+    </div>
+  </div>
+
+  <!-- CREW FAVOURITES -->
+  <section style="max-width:1180px; margin:0 auto; padding:clamp(56px,7vw,90px) 26px clamp(20px,3vw,30px);">
+    <div data-reveal="" style="text-align:center; max-width:600px; margin:0 auto 40px;">
+      <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:12px;">What the crew's having</div>
+      <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(32px,5vw,58px); line-height:.96; margin:0; color:#2a3f9e;">Start with a legend</h2>
+    </div>
+    <div data-r="g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <sc-for list="{{ signatures }}" as="f" hint-placeholder-count="3">
+        <a href="{{ f.href }}" style="text-decoration:none; display:block; background:#fff; border:2px solid #f0e6cd; border-radius:22px; overflow:hidden; box-shadow:0 10px 0 #f0d9b0; transition:transform .14s, box-shadow .14s;" style-hover="transform:translateY(3px); box-shadow:0 7px 0 #f0d9b0;">
+          <div class="yy-zoom" style="aspect-ratio:4/3; position:relative;">
+            <img src="{{ f.img }}" alt="{{ f.name }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span style="position:absolute; top:12px; left:12px; background:{{ f.tag }}; color:#fff; font-weight:800; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">{{ f.kicker }}</span>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+              <div style="font-family:'Monkeyoak',sans-serif; font-size:28px; color:#2a3f9e; line-height:1;">{{ f.name }}</div>
+              <span style="font-family:'Monkeyoak',sans-serif; font-size:22px; color:#e3222b; white-space:nowrap;">{{ f.price }}</span>
+            </div>
+            <p style="margin:8px 0 0; font-size:13.5px; line-height:1.5; color:#6f6448;">{{ f.desc }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FOOD GALLERY -->
+  <section style="padding:clamp(30px,4vw,50px) 0 clamp(40px,5vw,64px); overflow:hidden;">
+    <div data-reveal="" style="text-align:center; max-width:600px; margin:0 auto clamp(26px,3vw,38px); padding:0 26px;">
+      <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:12px;">Straight off the pass</div>
+      <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(30px,4.6vw,52px); line-height:.98; margin:0; color:#2a3f9e;">Real food, no styling tricks</h2>
+    </div>
+    <div style="position:relative; width:100%;">
+      <div style="display:flex; width:max-content; gap:18px; padding:6px 9px; animation:yy-marquee 42s linear infinite;">
+        <sc-for list="{{ galleryLoop }}" as="g" hint-placeholder-count="16">
+          <div class="yy-zoom" style="flex:0 0 auto; width:clamp(220px,24vw,300px); aspect-ratio:4/5; border-radius:20px; position:relative; background:#e7ddc4; box-shadow:0 12px 28px rgba(42,63,158,.14);">
+            <img src="{{ g.img }}" alt="{{ g.label }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div style="position:absolute; left:0; right:0; bottom:0; padding:34px 16px 14px; background:linear-gradient(transparent, rgba(20,16,10,.72)); border-radius:0 0 20px 20px;">
+              <span style="font-family:'Monkeyoak',sans-serif; font-size:22px; color:#fff;">{{ g.label }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story" style="max-width:1120px; margin:0 auto; padding:clamp(48px,6vw,84px) 26px;">
+    <div data-r="g2flip" style="display:grid; grid-template-columns:.92fr 1.08fr; gap:56px; align-items:center;">
+      <div data-r="photo" style="position:relative; display:flex; align-items:flex-end; justify-content:center; min-height:340px;">
+        <img src="assets/yak-chai.png" alt="Yak with chai" loading="lazy" style="position: relative; z-index: 2; height: 438px; width: 313px; max-width: 100%; display: block">
+      </div>
+      <div>
+        <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:16px;">Our Story</div>
+        <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(32px,4.8vw,56px); line-height:.98; margin:0 0 22px; color:#2a3f9e;">It started with homesickness</h2>
+        <p style="font-size:16px; line-height:1.7; color:#5a4f38; margin:0 0 16px;">The thing we missed most about Kathmandu wasn't a place — it was a smell. Garlic and ginger hitting a hot pan before sunrise. A momo too hot to hold. Chai sweet enough to wake you up.</p>
+        <p style="font-size:16px; line-height:1.7; color:#5a4f38; margin:0;">So we opened a little kitchen and started cooking the way our families do. Dough rolled thin, fillings seasoned by feel, nothing pre-made.</p>
+        <div style="display:flex; gap:34px; margin-top:30px; flex-wrap:wrap;">
+          <div><div style="font-family:'Monkeyoak',sans-serif; font-size:38px; color:#e3222b; line-height:1;">100%</div><div style="font-size:13px; color:#6f6448; margin-top:4px;">Folded by hand</div></div>
+          <div><div style="font-family:'Monkeyoak',sans-serif; font-size:38px; color:#2a3f9e; line-height:1;">60+</div><div style="font-size:13px; color:#6f6448; margin-top:4px;">Things to try</div></div>
+          <div><div style="font-family:'Monkeyoak',sans-serif; font-size:38px; color:#ffb800; line-height:1;">5</div><div style="font-size:13px; color:#6f6448; margin-top:4px;">Ways to order momo</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" style="position:relative; overflow:hidden; background:#fcf7ea; border-top:2px solid #2a3f9e; border-bottom:2px solid #2a3f9e; padding:clamp(56px,7vw,92px) 26px;">
+    <sc-if value="{{ isDefaultMascot }}" hint-placeholder-val="{{ true }}">
+    <img src="assets/mascot-dumpling.png" alt="" data-r="hide-sm" style="position:absolute; top:20px; right:clamp(10px,3vw,40px); width:clamp(72px,9vw,124px); height:auto; z-index:1; pointer-events:none; animation:yy-bob 5s ease-in-out infinite;">
+    </sc-if>
+    <sc-if value="{{ isBurgerCat }}" hint-placeholder-val="{{ false }}">
+    <img src="assets/mascot-burger.png" alt="" data-r="hide-sm" style="position:absolute; top:20px; right:clamp(10px,3vw,40px); width:clamp(72px,9vw,124px); height:auto; z-index:1; pointer-events:none; animation:yy-bob 5s ease-in-out infinite;">
+    </sc-if>
+    <sc-if value="{{ isDrinkCat }}" hint-placeholder-val="{{ false }}">
+    <img src="assets/yak-chai.png" alt="" data-r="hide-sm" style="position:absolute; top:20px; right:clamp(10px,3vw,40px); width:clamp(72px,9vw,124px); height:auto; z-index:1; pointer-events:none; animation:yy-bob 5s ease-in-out infinite;">
+    </sc-if>
+    <div style="position:relative; z-index:2; max-width:1140px; margin:0 auto;">
+      <div data-reveal="" style="text-align:center; max-width:600px; margin:0 auto 6px;">
+        <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:14px;">The Menu</div>
+        <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(34px,5vw,60px); line-height:.96; margin:0 0 14px; color:#2a3f9e;">Everyone starts with momo</h2>
+        <p style="font-size:16px; line-height:1.6; color:#6f6448; margin:0;">Nepali plates, Indian curries and a bit of Indo-Chinese. Pick a category.</p>
+      </div>
+
+      <!-- tabs -->
+      <div style="display:flex; gap:9px; overflow-x:auto; padding:28px 4px; margin:0 -4px;">
+        <div style="margin:0 auto; display:flex; gap:9px; flex-wrap:wrap; justify-content:center;">
+          <sc-for list="{{ categoriesView }}" as="c" hint-placeholder-count="9">
+            <button onclick="{{ c.onSelect }}" style="cursor:pointer; white-space:nowrap; font-family:'Parkinsans',sans-serif; font-weight:700; font-size:14px; padding:9px 18px; border-radius:999px; background:{{ c.bg }}; color:{{ c.fg }}; border:2px solid {{ c.border }}; transition:background .15s, color .15s, border-color .15s;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- MOMO FEATURE -->
+      <sc-if value="{{ isMomo }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#e3222b; border-radius:26px; padding:clamp(28px,4vw,42px); color:#fff; position:relative; overflow:hidden;">
+        <img src="assets/mascot-dumpling.png" alt="" loading="lazy" style="position:absolute; right:18px; top:-10px; width:clamp(90px,12vw,150px); height:auto; z-index:3;">
+        <div data-r="g2" style="position:relative; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+          <div>
+            <div style="display:inline-block; background:#fff; color:#e3222b; font-weight:800; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:7px 15px; border-radius:999px; margin-bottom:18px;">Start here</div>
+            <h3 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(36px,5vw,58px); line-height:.92; margin:0 0 14px;">The momo. Obviously.</h3>
+            <p style="font-size:16px; line-height:1.6; opacity:.95; margin:0 0 22px; max-width:420px;">Ten dumplings, pleated by hand and steamed to order, with the tomato achar we keep tweaking. Pick a filling, then how you want them cooked.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+              <sc-for list="{{ momoStyles }}" as="s" hint-placeholder-count="5">
+                <span style="background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:8px 15px; font-weight:700; font-size:13.5px;">{{ s }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <sc-for list="{{ momoPrices }}" as="pr" hint-placeholder-count="3">
+                <div style="flex:1; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28); border-radius:14px; padding:14px 8px; text-align:center;">
+                  <div style="font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; opacity:.9;">{{ pr.style }}</div>
+                  <div style="font-family:'Monkeyoak',sans-serif; font-size:28px; margin-top:4px;">{{ pr.price }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:12px; font-size:13px; opacity:.9;">10 pieces · also Kothey &amp; C-Momo</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <sc-for list="{{ momoFillings }}" as="m" hint-placeholder-count="4">
+              <div style="background:#fff; border-radius:16px; padding:18px; color:#2b2622;">
+                <div style="width:42px; height:42px; border-radius:50%; background:{{ m.color }}; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Monkeyoak',sans-serif; font-size:20px; margin-bottom:12px;">{{ m.initial }}</div>
+                <div style="font-weight:800; font-size:16px; color:#2a3f9e;">{{ m.name }} Momo</div>
+                <div style="font-size:12.5px; line-height:1.4; color:#6f6448; margin-top:4px;">{{ m.desc }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORLD OF MOMO -->
+      <div style="margin-top:26px;">
+        <h3 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(22px,3vw,30px); color:#2a3f9e; margin:0 0 16px;">World of Momo</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;">
+          <sc-for list="{{ specialMomos }}" as="sm" hint-placeholder-count="3">
+            <div style="background:#fff; border:2px solid #f0e6cd; border-radius:16px; padding:20px;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+                <h4 style="margin:0; font-size:16px; font-weight:800; color:#2a3f9e;">{{ sm.name }}</h4>
+                <span style="flex:0 0 auto; font-family:'Monkeyoak',sans-serif; font-size:19px; color:#e3222b;">{{ sm.price }}</span>
+              </div>
+              <p style="margin:6px 0 0; font-size:13px; line-height:1.45; color:#6f6448;">{{ sm.desc }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STANDARD MENU GRID -->
+      <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px;">
+        <sc-for list="{{ activeItems }}" as="it" hint-placeholder-count="6">
+          <div style="background:#fff; border:2px solid #f0e6cd; border-radius:16px; padding:16px; display:flex; gap:16px; align-items:center;">
+            <div style="flex:0 0 auto; width:66px; height:66px; border-radius:14px; overflow:hidden; background:#efe3c2;">
+              <img src="{{ it.img }}" alt="{{ it.n }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+                <h4 style="margin:0; font-size:16px; font-weight:800; color:#2a3f9e; line-height:1.2;">{{ it.n }}</h4>
+                <span style="flex:0 0 auto; font-family:'Monkeyoak',sans-serif; font-size:19px; color:#e3222b;">{{ it.p }}</span>
+              </div>
+              <sc-if value="{{ it.q }}" hint-placeholder-val="">
+                <span style="display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#e3222b; margin-top:5px;">{{ it.q }}</span>
+              </sc-if>
+              <p style="margin:6px 0 0; font-size:13px; line-height:1.5; color:#6f6448;">{{ it.d }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+
+      <!-- LIST MENU -->
+      <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:6px;">
+        <sc-for list="{{ activeItems }}" as="it" hint-placeholder-count="6">
+          <div style="display:flex; align-items:center; gap:16px; padding:14px; border-bottom:1px solid #efe3c2;">
+            <div style="flex:0 0 auto; width:54px; height:54px; border-radius:12px; overflow:hidden; background:#efe3c2;">
+              <img src="{{ it.img }}" alt="{{ it.n }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <h4 style="margin:0; font-size:16px; font-weight:800; color:#2a3f9e;">{{ it.n }}</h4>
+                <sc-if value="{{ it.q }}" hint-placeholder-val=""><span style="font-size:12px; color:#e3222b;">{{ it.q }}</span></sc-if>
+              </div>
+              <p style="margin:3px 0 0; font-size:13px; line-height:1.45; color:#6f6448;">{{ it.d }}</p>
+            </div>
+            <span style="flex:0 0 auto; font-family:'Monkeyoak',sans-serif; font-size:19px; color:#e3222b;">{{ it.p }}</span>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- MEET THE CREW -->
+  <section style="position:relative; background:#2a3f9e; color:#f4ead2; overflow:hidden;">
+  <div style="max-width:1120px; margin:0 auto; padding:clamp(40px,5vw,64px) 26px;">
+      <div data-r="g2" style="display:grid; grid-template-columns:1fr .9fr; gap:40px; align-items:center;">
+        <div>
+          <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#ffd23e; margin-bottom:14px;">Meet the crew</div>
+          <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(32px,4.8vw,56px); line-height:.96; margin:0 0 16px;">Two legends,<br>one kitchen</h2><p style="font-size:16px; line-height:1.65; color:#c7cedd; margin:0 0 24px; max-width:420px;">The Yak brings the chai and the curries. The Yeti brings the momo and the mischief. Together? That's dinner sorted.</p>
+          <a href="#menu" style="text-decoration:none; background:#e3222b; color:#fff; font-weight:800; font-size:16px; padding:14px 28px; border-radius:999px; display:inline-block; box-shadow:0 6px 0 #a8141c; transition:transform .12s, box-shadow .12s;" style-hover="transform:translateY(2px); box-shadow:0 4px 0 #a8141c;">Tuck in →</a>
+        </div>
+        <div style="display:flex; align-items:flex-end; justify-content:center; gap:0; min-height:300px;">
+        <img src="assets/yak-mascot.png" alt="Yak mascot" loading="lazy" style="height: 389px; width: 314px; max-width: 60%; display: block; animation: yy-bob 5.4s ease-in-out infinite"></div>
+      </div>
+    </div></section>
+
+  <!-- CATERING -->
+  <section id="catering" style="padding:clamp(48px,6vw,84px) 26px;">
+    <div style="max-width:1100px; margin:0 auto; background:#fcf7ea; border:2px solid #2a3f9e; border-radius:26px; padding:clamp(30px,5vw,56px);">
+      <div data-r="g2" style="display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;">
+        <div>
+          <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:14px;">Catering &amp; Events</div>
+          <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(30px,4.6vw,52px); line-height:.98; margin:0 0 18px; color:#2a3f9e;">Let us cook for your crowd</h2>
+          <p style="font-size:16px; line-height:1.65; color:#5a4f38; margin:0 0 26px; max-width:440px;">Momo by the hundred, sekuwa off the grill, the whole spread. Give us a date and a rough headcount and we'll handle the rest.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ cateringServices }}" as="s" hint-placeholder-count="6">
+              <span style="background:#fff; border:1.5px solid #e6dcc0; border-radius:999px; padding:8px 15px; font-weight:600; font-size:13.5px; color:#5a4f38;">{{ s }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:#fff; border:2px solid #f0e6cd; border-radius:18px; padding:28px; color:#2b2622;">
+          <h3 style="margin:0 0 4px; font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:25px; color:#2a3f9e;">Tell us about it</h3>
+          <p style="margin:0 0 18px; font-size:13px; color:#6f6448;">We usually reply the same day.</p>
+          <sc-if value="{{ catSent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center; padding:22px 8px;">
+            <div style="font-family:'Monkeyoak',sans-serif; font-size:30px; color:#1faa52;">Got it.</div>
+            <p style="margin:8px 0 0; font-size:14px; line-height:1.5; color:#6f6448;">Your message landed. We'll be in touch soon to sort the details.</p>
+          </div>
+          </sc-if>
+          <sc-if value="{{ catFormOpen }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <input placeholder="Your name" value="{{ formName }}" oninput="{{ onName }}" style="font-family:'Parkinsans',sans-serif; font-size:15px; padding:13px 15px; border-radius:11px; border:1.5px solid #e0d6ba; background:#fdfaf2; outline:none;">
+            <input placeholder="Email or phone" value="{{ formContact }}" oninput="{{ onContact }}" style="font-family:'Parkinsans',sans-serif; font-size:15px; padding:13px 15px; border-radius:11px; border:1.5px solid #e0d6ba; background:#fdfaf2; outline:none;">
+            <input placeholder="Event type &amp; guest count" value="{{ formEvent }}" oninput="{{ onEvent }}" style="font-family:'Parkinsans',sans-serif; font-size:15px; padding:13px 15px; border-radius:11px; border:1.5px solid #e0d6ba; background:#fdfaf2; outline:none;">
+            <sc-if value="{{ catError }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:13px; color:#e3222b; font-weight:600;">Please add your name and a contact, then try again.</div>
+            </sc-if>
+            <button onclick="{{ submitCatering }}" style="cursor:pointer; font-family:'Parkinsans',sans-serif; font-weight:800; background:#e3222b; color:#fff; font-size:15px; padding:14px; border:none; border-radius:11px; box-shadow:0 5px 0 #a8141c; transition:transform .12s, box-shadow .12s;" style-hover="transform:translateY(2px); box-shadow:0 3px 0 #a8141c;">{{ submitLabel }}</button>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section id="find" style="background:#fcf7ea; border-top:2px solid #2a3f9e; padding:clamp(56px,7vw,92px) 26px;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div data-reveal="" style="text-align:center; max-width:600px; margin:0 auto 48px;">
+        <div style="font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e3222b; margin-bottom:12px;">Find Us</div>
+        <h2 style="font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:clamp(32px,4.6vw,54px); line-height:1; margin:0 0 14px; color:#2a3f9e;">Come on in</h2>
+        <p style="font-size:16px; line-height:1.6; color:#6f6448; margin:0;">Dine in or grab it to go. Here's where to find us and how to order ahead.</p>
+      </div>
+
+      <!-- Himalaya → Auckland skyline motif -->
+      <div data-reveal="" style="max-width:1000px; margin:0 auto 44px;">
+        <svg viewBox="0 0 1000 120" preserveAspectRatio="xMidYMax meet" style="width:100%; height:auto; display:block;">
+          <path d="M0,120 L110,46 L165,82 L270,26 L345,78 L430,40 L520,88 L612,34 L705,84 L800,54 L1000,104 L1000,120 Z" fill="#2a3f9e" opacity="0.1"></path>
+          <path d="M270,26 L290,46 L283,42 L270,40 L258,44 Z" fill="#2a3f9e" opacity="0.22"></path>
+          <path d="M612,34 L632,54 L625,50 L612,48 L600,52 Z" fill="#2a3f9e" opacity="0.22"></path>
+          <g fill="#e3222b" opacity="0.55">
+            <rect x="876" y="60" width="9" height="60"></rect>
+            <ellipse cx="880.5" cy="58" rx="17" ry="9"></ellipse>
+            <rect x="878" y="30" width="5" height="28"></rect>
+            <circle cx="880.5" cy="30" r="4.5"></circle>
+            <rect x="880" y="6" width="1.5" height="24"></rect>
+          </g>
+          <path d="M0,120 L1000,120" stroke="#e6dcc0" stroke-width="1.5"></path>
+        </svg>
+        <div style="text-align:center; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#b3a684; margin-top:8px;">Kathmandu roots · Auckland home</div>
+      </div>
+
+      <div data-r="g2" style="display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;">
+        <div>
+          <div style="border-bottom:1px solid #e6dcc0; padding-bottom:22px; margin-bottom:22px;">
+            <div style="display:flex; align-items:flex-start; gap:13px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e3222b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:2px;"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <div style="font-weight:800; font-size:18px; color:#2a3f9e;">G1 / 396 Queen Street</div>
+                <div style="font-size:14px; color:#6f6448;">Auckland CBD, 1010</div>
+                <div style="font-size:14px; color:#e3222b; margin-top:6px; font-weight:700;">Dine in · Take away</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <sc-for list="{{ orderOptions }}" as="o" hint-placeholder-count="3">
+              <div style="display:flex; align-items:center; gap:15px;">
+                <div style="flex:0 0 auto; width:38px; height:38px; border-radius:50%; background:{{ o.tint }}; display:flex; align-items:center; justify-content:center; color:{{ o.ring }}; font-family:'Monkeyoak',sans-serif; font-size:18px;">{{ o.n }}</div>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-weight:800; font-size:15.5px; color:#2a3f9e;">{{ o.title }}</div>
+                  <div style="font-size:13px; color:#6f6448;">{{ o.desc }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr; gap:14px;">
+          <div style="background:#f4ead2; border-radius:16px; padding:24px;">
+            <h3 style="margin:0 0 12px; font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:22px; color:#2a3f9e;">Opening hours</h3>
+            <div style="font-size:15px; line-height:1.95; color:#5a4f38;">
+              <div style="display:flex; justify-content:space-between;"><span>Wed – Fri</span><span style="font-weight:700; color:#2a3f9e;">5pm – late</span></div>
+              <div style="display:flex; justify-content:space-between;"><span>Sat – Sun</span><span style="font-weight:700; color:#2a3f9e;">12pm – late</span></div>
+              <div style="display:flex; justify-content:space-between; color:#9a8e6f;"><span>Mon – Tue</span><span>Closed</span></div>
+            </div>
+          </div>
+          <div style="background:#f4ead2; border-radius:16px; padding:24px;">
+            <h3 style="margin:0 0 14px; font-family:'Monkeyoak',sans-serif; font-weight:400; font-size:22px; color:#2a3f9e;">Get in touch</h3>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:15px;">
+              <a href="#" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#2b2622;"><span style="width:28px; height:28px; border-radius:8px; background:#1faa52; display:inline-flex; align-items:center; justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 20l1.4-4.6A8.5 8.5 0 1 1 21 11.5z"></path></svg></span> WhatsApp us</a>
+              <a href="mailto:hello@yakandyeti.co.nz" style="text-decoration:none; color:#2b2622; word-break:break-all;">hello@yakandyeti.co.nz</a>
+              <a href="tel:+64212758352" style="text-decoration:none; color:#2b2622;">021 275 8352</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="background:#2a3f9e; color:#f4ead2;">
+  <div style="max-width:1200px; margin:0 auto; padding:60px 26px 0;">
+      <div data-r="g4" style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.3fr; gap:40px 32px;">
+        <div>
+        <p style="font-size:14px; line-height:1.65; color:#c7cedd; margin:0; max-width:240px;">Nepali street food, hand-folded fresh on Queen Street, Auckland. Taste the Himalayas.</p></div>
+        <div>
+          <div style="font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:#ffd23e; margin-bottom:18px;">Explore</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ footAbout }}" as="l" hint-placeholder-count="4">
+              <a href="{{ l.href }}" style="font-size:14px; color:#cdd4e3; text-decoration:none; transition:color .12s;" style-hover="color:#fff;">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:#ffd23e; margin-bottom:18px;">Follow</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ footSocial }}" as="l" hint-placeholder-count="3">
+              <a href="{{ l.href }}" style="font-size:14px; color:#cdd4e3; text-decoration:none; transition:color .12s;" style-hover="color:#fff;">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="max-width:320px;">
+          <div style="font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:#ffd23e; margin-bottom:18px;">Newsletter</div>
+          <p style="font-size:14px; line-height:1.55; color:#c7cedd; margin:0 0 18px;">Weekly specials and first dibs on new dishes.</p>
+          <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Monkeyoak',sans-serif; font-size:24px; color:#ffd23e;">You're on the list.</div>
+          </sc-if>
+          <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display:flex; align-items:center; gap:12px; border-bottom:1.5px solid rgba(244,234,210,.4); padding-bottom:10px;">
+              <input placeholder="Your email" value="{{ newsEmail }}" oninput="{{ onNews }}" style="flex:1; min-width:0; font-family:'Parkinsans',sans-serif; font-size:15px; background:transparent; border:none; outline:none; color:#f4ead2;">
+              <button onclick="{{ subscribe }}" style="cursor:pointer; font-family:'Parkinsans',sans-serif; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; background:transparent; border:none; color:#f4ead2; transition:color .12s;" style-hover="color:#ffd23e;">Sign Up</button>
+            </div>
+            <label style="display:flex; align-items:center; gap:10px; margin-top:16px; cursor:pointer;">
+              <span onclick="{{ toggleNews }}" style="width:19px; height:19px; flex:0 0 auto; border:1.5px solid rgba(244,234,210,.6); border-radius:4px; display:flex; align-items:center; justify-content:center; background:{{ newsBoxBg }};">
+                <sc-if value="{{ newsAccepted }}" hint-placeholder-val="{{ false }}">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2a3f9e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"></path></svg>
+                </sc-if>
+              </span>
+              <span style="font-size:12.5px; color:#c7cedd;">I accept the <a href="#" style="color:#cdd4e3;">terms</a>.</span>
+            </label>
+            <sc-if value="{{ newsError }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px; color:#ffb3b8; margin-top:10px;">Add your email and tick the box to subscribe.</div>
+            </sc-if>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+      <img src="assets/logo.svg" alt="Yak &amp; Yeti" style="height: 163px; width: 205px; display: block"><div style="margin-top:52px; padding:22px 0 28px; border-top:1px solid rgba(255,255,255,.14); display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px; letter-spacing:.04em; color:#9aa6cf;">© Yak &amp; Yeti 2026 · Queen Street, Auckland</span>
+        <span style="font-size:13px; letter-spacing:.04em; color:#9aa6cf;">021 275 8352 · hello@yakandyeti.co.nz</span>
+      </div>
+    </div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 3400 },
+  &quot;defaultCategory&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;momo&quot;, &quot;options&quot;: [&quot;momo&quot;, &quot;chaat&quot;, &quot;chowmein&quot;, &quot;thukpa&quot;, &quot;indochinese&quot;, &quot;curry&quot;, &quot;ontray&quot;, &quot;burgers&quot;, &quot;drinks&quot;], &quot;tsType&quot;: &quot;string&quot; },
+  &quot;menuStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;cards&quot;, &quot;options&quot;: [&quot;cards&quot;, &quot;list&quot;], &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  state = { cat: null, form: { name: '', contact: '', event: '' }, status: 'idle', news: '', newsAccepted: false, newsStatus: 'idle' };
+
+  setField(k, v) { this.setState(s => ({ form: { ...s.form, [k]: v } })); }
+
+  componentDidMount() {
+    const run = () => {
+      const els = Array.from(document.querySelectorAll('[data-reveal]'));
+      if (!els.length) return;
+      const vh = window.innerHeight || 800;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            const el = en.target;
+            const d = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(el => {
+        const r = el.getBoundingClientRect();
+        el.style.transition = 'opacity .7s ease, transform .8s cubic-bezier(.2,.75,.3,1)';
+        if (r.top > vh * 0.82) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          io.observe(el);
+        }
+      });
+      this._revealTimer = setTimeout(() => { els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }); }, 3000);
+    };
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => requestAnimationFrame(run));
+    else run();
+  }
+
+  componentWillUnmount() { if (this._revealTimer) clearTimeout(this._revealTimer); }
+
+  subscribe(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!this.state.news.trim() || !this.state.newsAccepted) { this.setState({ newsStatus: 'error' }); return; }
+    console.log('[Yak & Yeti] Newsletter signup:', this.state.news, '— wire to your email provider to capture these.');
+    this.setState({ newsStatus: 'sent' });
+  }
+
+  async submitCatering(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const { name, contact, event } = this.state.form;
+    if (!name.trim() || !contact.trim()) { this.setState({ status: 'error' }); return; }
+    this.setState({ status: 'sending' });
+    // ↓↓↓ TO GO LIVE: create a free form at web3forms.com (or formspree.io) and paste the key below.
+    const ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+    try {
+      if (ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+        await new Promise(r => setTimeout(r, 600));
+        console.log('[Yak & Yeti] Demo catering submit:', this.state.form, '— add a Web3Forms/Formspree key in submitCatering() to email these for real.');
+        this.setState({ status: 'sent' });
+        return;
+      }
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: ACCESS_KEY, subject: 'New catering enquiry — Yak & Yeti', from_name: name, name: name, contact: contact, event: event }),
+      });
+      this.setState({ status: res.ok ? 'sent' : 'error' });
+    } catch (_) { this.setState({ status: 'error' }); }
+  }
+
+  get menu() {
+    return {
+      chaat: [
+        { n: 'Pani Puri', q: '8 pcs', d: 'Crispy puris filled with spiced potatoes and tangy mint-flavored water.', p: '$10' },
+        { n: 'Dahi Puri', q: '6 pcs', d: 'Crunchy puris topped with yogurt, chutneys and fresh spices.', p: '$10' },
+        { n: 'Samosa Chaat', d: 'Crispy samosa served with chickpeas, yogurt and flavorful chutneys.', p: '$10' },
+        { n: 'Chatpate', q: 'Gilo or Sukha', d: 'A popular Nepali street snack mixed with spices, herbs and fresh vegetables.', p: '$10' },
+        { n: 'Wai Wai Sadeko', d: 'Nepali-style Wai Wai noodles tossed with onions, tomatoes, chilies and spices.', p: '$12' },
+        { n: 'Peanut Sadeko', d: 'Spicy and tangy peanut salad mixed with fresh herbs and Nepali seasonings.', p: '$12' },
+        { n: 'Samosa', q: '2 pcs', d: 'Golden fried pastry filled with seasoned potatoes and peas.', p: '$5' },
+        { n: 'Vakka', q: '2 pcs · Nepali style idli', d: 'Soft steamed rice cakes served Nepali style with chutney.', p: '$5' },
+        { n: 'Aloo Chop', q: '3 pcs', d: 'Crispy potato patties coated in spiced batter and deep-fried.', p: '$10' },
+        { n: 'Bhel Puri', d: 'A crunchy mix of puffed rice, vegetables, chutney and spices.', p: '$10' },
+        { n: 'Timmur Aloo', d: 'Crispy fried potato wedges tossed in Nepali-style Sichuan pepper.', p: '$12' },
+        { n: 'Potato Sticks', q: '2 pcs', d: 'Crispy potato skewers seasoned with flavorful spices.', p: '$5' },
+        { n: 'Piro Sausage', q: '2 pcs', d: 'Fried sausages served with dipping sauce.', p: '$7' },
+        { n: 'Shaphaley', q: '2 pcs · Empanada', d: 'Traditional Nepalese-style fried pastry filled with flavoured minced protein.', p: '$10' },
+        { n: 'Spring Rolls', q: '2 pcs', d: 'Crispy rolls filled with vegetables and noodles.', p: '$8' },
+        { n: 'Paneer Pakoda', d: 'Cottage cheese coated in seasoned batter and fried until golden.', p: '$12' },
+        { n: 'Onion Bhaji', d: 'Crispy onion fritters with aromatic spices.', p: '$10' },
+        { n: 'Wedges', d: 'Seasoned potato wedges served with dipping sauce.', p: '$8' },
+        { n: 'Fries', d: 'Golden crispy fries lightly seasoned.', p: '$6' },
+      ],
+      chowmein: [
+        { n: 'Vegetable Chow Mein', d: 'Stir-fried noodles with fresh vegetables and house seasoning.', p: '$15' },
+        { n: 'Chicken Chow Mein', d: 'Classic noodles with tender chicken and vegetables.', p: '$16' },
+        { n: 'Lamb Chow Mein', d: 'Noodles tossed with marinated lamb and vegetables.', p: '$17' },
+        { n: 'Cheese Chow Mein', d: 'Stir-fried noodles with a generous melt of cheese.', p: '$17' },
+        { n: 'Keema Chow Mein', d: 'Noodles cooked with seasoned mince and vegetables.', p: '$18' },
+      ],
+      thukpa: [
+        { n: 'Chicken Thukpa', d: 'Traditional Himalayan noodle soup with aromatic broth and fresh veg.', p: '$18' },
+        { n: 'Mutton Thukpa', d: 'The classic mountain mutton noodle soup.', p: '$18' },
+        { n: 'Lamb Thukpa', d: 'Slow-simmered lamb in a warming spiced broth.', p: '$18' },
+        { n: 'Vegetable / Tofu / Paneer Thukpa', d: 'Garden veg, tofu or paneer in spiced broth.', p: '$18' },
+        { n: 'Thukpa Combo', d: 'A comforting bowl of thukpa served with 4 pieces of any momo.', p: '$20' },
+      ],
+      indochinese: [
+        { n: 'Hakka Noodles', d: 'Stir-fried noodles cooked in classic Indo-Chinese style.', p: '$18' },
+        { n: 'Triple Rice Noodles', d: 'A hearty combination of noodles, fried rice and spicy gravy.', p: '$20' },
+        { n: 'Szechuan Fried Noodles', d: 'Noodles tossed in a bold and spicy Szechuan sauce.', p: '$18' },
+        { n: 'Manchurian', d: 'Vegetable or chicken balls cooked in savory Manchurian sauce.', p: '$20' },
+        { n: 'Fried Rice', d: 'Traditional fried rice with your choice of vegetables, chicken or egg.', p: '$16' },
+        { n: 'Szechuan Fried Rice', d: 'Spicy fried rice infused with Szechuan flavors.', p: '$18' },
+      ],
+      curry: [
+        { n: 'Butter Chicken with Rice', d: 'Tender chicken cooked in a creamy tomato-based sauce.', p: '$18' },
+        { n: 'Nepalese Chicken Curry with Rice', d: 'Traditional Nepali-style chicken curry with aromatic spices.', p: '$18' },
+        { n: 'Nepalese Style Goat Curry with Rice', d: 'Rich goat curry prepared with authentic Himalayan flavors.', p: '$20' },
+        { n: 'Matar Paneer with Rice', d: 'Paneer and green peas cooked in a flavorful curry sauce.', p: '$18' },
+        { n: 'Butter Paneer with Rice', d: 'Paneer simmered in a rich and creamy tomato gravy.', p: '$18' },
+      ],
+      ontray: [
+        { n: 'Chicken Lollipop', q: 'Half / Full · 4/8 pcs · Bone-in', d: 'Marinated chicken wings fried and tossed with house spices.', p: '$10 / $16' },
+        { n: 'Chilli Chicken', d: 'Crispy chicken stir-fried with capsicum, onions and spicy sauce.', p: '$18' },
+        { n: 'Chilli Paneer', d: 'Paneer cubes cooked with vegetables in a spicy Indo-Chinese sauce.', p: '$18' },
+        { n: 'Chilli Garlic Potato', d: 'Crispy potatoes tossed in garlic, chili and in-house seasonings.', p: '$12' },
+        { n: 'Roti with Chicken', d: 'Soft flatbread served with rich and flavorful chicken curry.', p: '$15' },
+        { n: 'Nepalese Style Piro Chicken', d: 'Crunchy chicken tenders coated in authentic Nepali spices.', p: '$18' },
+      ],
+      burgers: [
+        { n: 'MoBurg', d: "Yak & Yeti's signature burger featuring Nepalese-inspired flavors.", p: '$18' },
+        { n: 'Crispy Chicken Burger', d: 'Crunchy chicken fillet with fresh salad and house sauce.', p: '$18' },
+        { n: 'Noodles Burger', d: 'A unique burger filled with a crispy noodle patty and vegetables.', p: '$15' },
+        { n: 'Veggie Burger', d: 'Vegetable patty served with fresh salad and sauce.', p: '$15' },
+        { n: 'Chicken Wrap', d: 'Grilled chicken wrapped with fresh salad and sauce.', p: '$10' },
+        { n: 'Paneer Wrap', d: 'Marinated paneer wrapped with salad and flavorful sauces.', p: '$10' },
+        { n: 'Fish & Chips', d: 'Golden battered fish served with crispy fries.', p: '$12' },
+        { n: 'Chicken Nuggets', d: 'Crispy bite-sized chicken pieces served with dipping sauce.', p: '$10' },
+      ],
+      drinks: [
+        { n: 'Masala Tea', d: 'Traditional spiced milk tea.', p: '$4' },
+        { n: 'Mango Lassi', d: 'Refreshing yogurt drink blended with sweet mango.', p: '$6' },
+        { n: 'Masala Soda', d: 'A fizzy and tangy Indian-style spiced soda.', p: '$6' },
+        { n: 'Masala Coke', d: 'Classic cola enhanced with traditional spice flavors.', p: '$6' },
+        { n: 'Royal Falooda', d: 'A rich dessert drink with ice cream, vermicelli, chia seeds and rose syrup.', p: '$12' },
+        { n: 'Gulab Jamun', q: '3 pcs', d: 'Soft, deep-fried milk dumplings soaked in fragrant cardamom sugar syrup. Served warm.', p: '$5' },
+        { n: 'Kheer', d: 'Traditional rice pudding slow-cooked with milk, sugar, cardamom and nuts.', p: '$10' },
+        { n: 'Moong Dal Halwa', d: 'Rich and aromatic lentil pudding with roasted moong dal, ghee, milk and nuts.', p: '$10' },
+        { n: 'Kulfi — Paan or Mango', d: 'Authentic Indian-style ice cream in paan or sweet mango flavour.', p: '$6' },
+      ],
+    };
+  }
+
+  get cats() {
+    return [
+      { id: 'momo', label: 'Momo' },
+      { id: 'chaat', label: 'Chaat & Snacks' },
+      { id: 'chowmein', label: 'Chow Mein' },
+      { id: 'thukpa', label: 'Thukpa' },
+      { id: 'indochinese', label: 'Indo-Chinese' },
+      { id: 'curry', label: 'Curry & Rice' },
+      { id: 'ontray', label: 'Appetizers & Sharing' },
+      { id: 'burgers', label: 'Burgers & Wraps' },
+      { id: 'drinks', label: 'Drinks & Dessert' },
+    ];
+  }
+
+  get photos() {
+    return {
+      chaat: ['1601050690597-df0568f70950', '1606491956689-2ea866880c84'],
+      chowmein: ['1585032226651-759b368d7246', '1569718212165-3a8278d5f624'],
+      thukpa: ['1612927601601-6638404737ce', '1569718212165-3a8278d5f624'],
+      indochinese: ['1603133872878-684f208fb84b', '1512058564366-18510be2db19', '1631452180519-c014fe946bc7'],
+      curry: ['1631452180519-c014fe946bc7', '1585937421612-70a008356fbe', '1565557623262-b51c2513a641'],
+      ontray: ['1555939594-58d7cb561ad1', '1529193591184-b1d58069ecdd'],
+      burgers: ['1571091718767-18b5b1457add', '1568901346375-23c9450c58cd', '1573080496219-bb080dd4f877'],
+      drinks: ['1553530666-ba11a7da3888', '1551024601-bec78aea704b'],
+    };
+  }
+
+  imgUrl(id) { return 'https://images.unsplash.com/photo-' + id + '?fm=jpg&q=60&w=180&h=180&fit=crop'; }
+
+  pickPhoto(catId, name, idx) {
+    if (catId === 'drinks') {
+      const dessert = /gulab|kheer|halwa|kulfi/i.test(name);
+      return this.imgUrl(dessert ? '1551024601-bec78aea704b' : '1553530666-ba11a7da3888');
+    }
+    const arr = this.photos[catId] || ['1534422298391-e4f8c172dddb'];
+    return this.imgUrl(arr[idx % arr.length]);
+  }
+
+  get active() {
+    return this.state.cat || (this.props.defaultCategory || 'momo');
+  }
+
+  setCat(id) { this.setState({ cat: id }); }
+
+  renderVals() {
+    const active = this.active;
+    const isMomo = active === 'momo';
+    const isBurgerCat = active === 'burgers';
+    const isDrinkCat = active === 'drinks';
+    const isDefaultMascot = !isBurgerCat && !isDrinkCat;
+    const items = (this.menu[active] || []).map((it, i) => ({
+      ...it, q: it.q || '', img: this.pickPhoto(active, it.n, i),
+    }));
+    const listMode = (this.props.menuStyle || 'cards') === 'list';
+
+    const categoriesView = this.cats.map(c => {
+      const on = c.id === active;
+      return {
+        id: c.id, label: c.label,
+        bg: on ? '#2a3f9e' : 'transparent',
+        fg: on ? '#fff' : '#5a4f38',
+        border: on ? '#2a3f9e' : '#d8cba6',
+        onSelect: () => this.setCat(c.id),
+      };
+    });
+
+    return {
+      formName: this.state.form.name,
+      formContact: this.state.form.contact,
+      formEvent: this.state.form.event,
+      onName: (e) => this.setField('name', e.target.value),
+      onContact: (e) => this.setField('contact', e.target.value),
+      onEvent: (e) => this.setField('event', e.target.value),
+      submitCatering: (e) => this.submitCatering(e),
+      catSent: this.state.status === 'sent',
+      catFormOpen: this.state.status !== 'sent',
+      catError: this.state.status === 'error',
+      submitLabel: this.state.status === 'sending' ? 'Sending…' : 'Request my quote',
+      categoriesView,
+      isBurgerCat,
+      isDrinkCat,
+      isDefaultMascot,
+      isMomo,
+      showGrid: !isMomo && !listMode,
+      showList: !isMomo && listMode,
+      activeItems: items,
+      galleryLoop: (() => {
+        const g = [
+          { id: '1534422298391-e4f8c172dddb', label: 'Steamed Momo' },
+          { id: '1631452180519-c014fe946bc7', label: 'Butter Chicken' },
+          { id: '1612927601601-6638404737ce', label: 'Thukpa' },
+          { id: '1585032226651-759b368d7246', label: 'Chow Mein' },
+          { id: '1601050690597-df0568f70950', label: 'Chaat' },
+          { id: '1555939594-58d7cb561ad1', label: 'Sekuwa' },
+          { id: '1603133872878-684f208fb84b', label: 'Fried Rice' },
+          { id: '1553530666-ba11a7da3888', label: 'Mango Lassi' },
+        ];
+        const url = (id) => 'https://images.unsplash.com/photo-' + id + '?fm=jpg&q=66&w=520&auto=format&fit=crop';
+        const one = g.map(x => ({ img: url(x.id), label: x.label }));
+        return [...one, ...one];
+      })(),
+      signatures: [
+        { name: 'Lamb Momo', kicker: 'House Signature', price: 'From $13', tag: '#e3222b', href: '#menu', desc: 'Hand-folded, steamed to order, dipped in fiery tomato achar.', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?fm=jpg&q=70&w=640&auto=format&fit=crop' },
+        { name: 'MoBurg', kicker: 'Cult Favourite', price: '$18', tag: '#2a3f9e', href: '#menu', desc: 'Our momo spin on a classic — crunchy, saucy, very moreish.', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?fm=jpg&q=70&w=640&auto=format&fit=crop' },
+        { name: 'Mango Lassi', kicker: 'Cool Down', price: '$6', tag: '#b8932a', href: '#menu', desc: 'Thick, sweet and creamy — the perfect foil to the spice.', img: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?fm=jpg&q=70&w=640&auto=format&fit=crop' },
+      ],
+      momoStyles: ['Steamed', 'Chilli', 'Kothey', 'Jhol', 'C-Momo'],
+      momoPrices: [
+        { style: 'Steamed', price: '$13' },
+        { style: 'Chilli', price: '$15' },
+        { style: 'Jhol', price: '$17' },
+      ],
+      momoFillings: [
+        { name: 'Chicken', initial: 'C', desc: 'Juicy chicken, herbs and warm spice.', color: '#e3222b' },
+        { name: 'Buff', initial: 'B', desc: 'Spiced buffalo mince, the classic.', color: '#2a3f9e' },
+        { name: 'Paneer', initial: 'P', desc: 'Cottage cheese blended with herbs.', color: '#ffb800' },
+        { name: 'Veg', initial: 'V', desc: 'Mixed veg in delicate dumpling dough.', color: '#1faa52' },
+      ],
+      specialMomos: [
+        { name: 'Butter Chicken Momo', desc: 'Fried momo coated in rich and creamy butter chicken sauce.', price: '$20' },
+        { name: 'Tandoori Momo', desc: 'Momo marinated in tandoori spices and cooked to perfection.', price: '$20' },
+        { name: 'Afghani Momo', desc: 'Momo served in a creamy, mildly spiced Afghani-style sauce.', price: '$20' },
+      ],
+      cateringServices: ['Weddings', 'Corporate Events', 'Festivals & Markets', 'Birthday Parties', 'University Events', 'Private Functions'],
+      footAbout: [
+        { label: 'Our Story', href: '#story' },
+        { label: 'Menu', href: '#menu' },
+        { label: 'Catering', href: '#catering' },
+        { label: 'Find Us', href: '#find' },
+      ],
+      footSocial: [
+        { label: 'Instagram', href: '#' },
+        { label: 'Facebook', href: '#' },
+        { label: 'TikTok', href: '#' },
+      ],
+      newsEmail: this.state.news,
+      onNews: (e) => this.setState({ news: e.target.value }),
+      toggleNews: () => this.setState(s => ({ newsAccepted: !s.newsAccepted })),
+      newsAccepted: this.state.newsAccepted,
+      newsBoxBg: this.state.newsAccepted ? '#f4ead2' : 'transparent',
+      subscribe: (e) => this.subscribe(e),
+      subscribed: this.state.newsStatus === 'sent',
+      notSubscribed: this.state.newsStatus !== 'sent',
+      newsError: this.state.newsStatus === 'error',
+      orderOptions: [
+        { n: '1', ring: '#e3222b', tint: 'rgba(227,34,43,.1)', title: 'Order online', desc: 'Pay ahead and skip the queue — ready for pickup.' },
+        { n: '2', ring: '#2a3f9e', tint: 'rgba(42,63,158,.1)', title: 'Call to order', desc: '021 275 8352 — we\'ll have it packed and hot.' },
+        { n: '3', ring: '#b8932a', tint: 'rgba(255,184,0,.16)', title: 'Walk in & dine', desc: 'Grab a table or order at the counter to take away.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
